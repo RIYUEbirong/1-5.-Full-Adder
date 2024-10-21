@@ -1,0 +1,36 @@
+`timescale 1ns/1ns
+module tb_fulladder();
+
+reg KEY1;
+reg KEY2;
+reg KEY3;
+wire LED0;
+wire LED1;
+
+fulladder uut (
+	.KEY1(KEY1),
+	.KEY2(KEY2),
+	.KEY3(KEY3),
+	.LED0(LED0),
+	.LED1(LED1)
+);
+
+initial begin
+
+$display("KEY1, KEY2, KEY3 | LED0(Sum), LED1(Carry)");
+$display("-----------------------------------------");
+
+for (KEY1 = 0; KEY1 <= 1; KEY1 = KEY1 + 1) begin
+	for (KEY2=0; KEY2<=1; KEY2=KEY2+1) begin
+		for (KEY3=0; KEY3<=1; KEY3=KEY3+1) begin
+			#10;
+			
+			$display("%b %b %b | $b %b", KEY1, KEY2, KEY3, LED0, LED1);
+			end
+			end
+			end
+
+			$finish;
+			end
+			
+ endmodule
